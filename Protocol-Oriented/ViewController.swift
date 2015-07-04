@@ -8,36 +8,49 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource {
+class ViewController: UIViewController {
 
     @IBOutlet var textField: UITextField!
     @IBOutlet var addButton: UIButton!
     @IBOutlet var tableView: UITableView!
     
-    var items: [String] = []
+    let dataStore: DataStore = DataStore(defaults: NSUserDefaults.standardUserDefaults())
+    var names: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "reuseIdentifier")
-    }
-
-    @IBAction func addAction() {
-        guard let item = textField.text where !item.isEmpty else { return }
-        items.append(item)
-        textField.text = nil
-        tableView.reloadData()
+        
+        names = dataStore.fetchNames()
     }
     
+    @IBAction func addAction() {
+        guard let name = textField.text where !name.isEmpty else { return }
+        textField.text = nil
+        
+        dataStore.addName(name)
+        reloadData()
+    }
+    
+    func reloadData() {
+        names = dataStore.fetchNames()
+        tableView.reloadData()
+    }
+}
+
+extension ViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-        let item = items[indexPath.row]
-        cell.textLabel?.text = item
+        
+        let name = names[indexPath.row]
+        cell.textLabel?.text = name
+        
         return cell
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        return names.count
     }
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -46,8 +59,9 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         tableView.beginUpdates()
-        if editingStyle == UITableViewCellEditingStyle.Delete {
-            items.removeAtIndex(indexPath.row)
+        if editingStyle == .Delete {
+            let name = names.removeAtIndex(indexPath.row)
+            dataStore.removeName(name)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
         }
         tableView.endUpdates()
