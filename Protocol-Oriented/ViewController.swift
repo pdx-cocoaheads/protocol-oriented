@@ -23,7 +23,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
 
     @IBAction func addAction() {
-        guard let item = textField.text else { return }
+        guard let item = textField.text where !item.isEmpty else { return }
         items.append(item)
         textField.text = nil
         tableView.reloadData()
