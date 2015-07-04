@@ -12,20 +12,12 @@
 		942D4A791B4729DC0079945E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 942D4A771B4729DC0079945E /* Main.storyboard */; };
 		942D4A7B1B4729DC0079945E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 942D4A7A1B4729DC0079945E /* Assets.xcassets */; };
 		942D4A7E1B4729DC0079945E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 942D4A7C1B4729DC0079945E /* LaunchScreen.storyboard */; };
-		942D4A941B4729DC0079945E /* Protocol_OrientedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942D4A931B4729DC0079945E /* Protocol_OrientedUITests.swift */; };
 		94448E781B4768C300A73599 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94448E771B4768C300A73599 /* DataStore.swift */; };
 		94D8EEF81B482780001A68BA /* DataStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D8EEF71B482780001A68BA /* DataStoreTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		942D4A851B4729DC0079945E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 942D4A681B4729DC0079945E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 942D4A6F1B4729DC0079945E;
-			remoteInfo = "Protocol-Oriented";
-		};
-		942D4A901B4729DC0079945E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 942D4A681B4729DC0079945E /* Project object */;
 			proxyType = 1;
@@ -44,9 +36,6 @@
 		942D4A7F1B4729DC0079945E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		942D4A841B4729DC0079945E /* Protocol-OrientedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Protocol-OrientedTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		942D4A8A1B4729DC0079945E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		942D4A8F1B4729DC0079945E /* Protocol-OrientedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Protocol-OrientedUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		942D4A931B4729DC0079945E /* Protocol_OrientedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol_OrientedUITests.swift; sourceTree = "<group>"; };
-		942D4A951B4729DC0079945E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94448E771B4768C300A73599 /* DataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		94D8EEF71B482780001A68BA /* DataStoreTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStoreTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -66,13 +55,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		942D4A8C1B4729DC0079945E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -81,7 +63,6 @@
 			children = (
 				942D4A721B4729DC0079945E /* Protocol-Oriented */,
 				942D4A871B4729DC0079945E /* Protocol-OrientedTests */,
-				942D4A921B4729DC0079945E /* Protocol-OrientedUITests */,
 				942D4A711B4729DC0079945E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -91,7 +72,6 @@
 			children = (
 				942D4A701B4729DC0079945E /* Protocol-Oriented.app */,
 				942D4A841B4729DC0079945E /* Protocol-OrientedTests.xctest */,
-				942D4A8F1B4729DC0079945E /* Protocol-OrientedUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -117,15 +97,6 @@
 				94D8EEF71B482780001A68BA /* DataStoreTests.swift */,
 			);
 			path = "Protocol-OrientedTests";
-			sourceTree = "<group>";
-		};
-		942D4A921B4729DC0079945E /* Protocol-OrientedUITests */ = {
-			isa = PBXGroup;
-			children = (
-				942D4A931B4729DC0079945E /* Protocol_OrientedUITests.swift */,
-				942D4A951B4729DC0079945E /* Info.plist */,
-			);
-			path = "Protocol-OrientedUITests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,24 +137,6 @@
 			productReference = 942D4A841B4729DC0079945E /* Protocol-OrientedTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		942D4A8E1B4729DC0079945E /* Protocol-OrientedUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 942D4A9E1B4729DD0079945E /* Build configuration list for PBXNativeTarget "Protocol-OrientedUITests" */;
-			buildPhases = (
-				942D4A8B1B4729DC0079945E /* Sources */,
-				942D4A8C1B4729DC0079945E /* Frameworks */,
-				942D4A8D1B4729DC0079945E /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				942D4A911B4729DC0079945E /* PBXTargetDependency */,
-			);
-			name = "Protocol-OrientedUITests";
-			productName = "Protocol-OrientedUITests";
-			productReference = 942D4A8F1B4729DC0079945E /* Protocol-OrientedUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -197,10 +150,6 @@
 						CreatedOnToolsVersion = 7.0;
 					};
 					942D4A831B4729DC0079945E = {
-						CreatedOnToolsVersion = 7.0;
-						TestTargetID = 942D4A6F1B4729DC0079945E;
-					};
-					942D4A8E1B4729DC0079945E = {
 						CreatedOnToolsVersion = 7.0;
 						TestTargetID = 942D4A6F1B4729DC0079945E;
 					};
@@ -221,7 +170,6 @@
 			targets = (
 				942D4A6F1B4729DC0079945E /* Protocol-Oriented */,
 				942D4A831B4729DC0079945E /* Protocol-OrientedTests */,
-				942D4A8E1B4729DC0079945E /* Protocol-OrientedUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -238,13 +186,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		942D4A821B4729DC0079945E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		942D4A8D1B4729DC0079945E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -272,14 +213,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		942D4A8B1B4729DC0079945E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				942D4A941B4729DC0079945E /* Protocol_OrientedUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -287,11 +220,6 @@
 			isa = PBXTargetDependency;
 			target = 942D4A6F1B4729DC0079945E /* Protocol-Oriented */;
 			targetProxy = 942D4A851B4729DC0079945E /* PBXContainerItemProxy */;
-		};
-		942D4A911B4729DC0079945E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 942D4A6F1B4729DC0079945E /* Protocol-Oriented */;
-			targetProxy = 942D4A901B4729DC0079945E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -444,30 +372,6 @@
 			};
 			name = Release;
 		};
-		942D4A9F1B4729DD0079945E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = "Protocol-OrientedUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.pdx-ios.Protocol-OrientedUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = "Protocol-Oriented";
-				USES_XCTRUNNER = YES;
-			};
-			name = Debug;
-		};
-		942D4AA01B4729DD0079945E /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = "Protocol-OrientedUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.pdx-ios.Protocol-OrientedUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = "Protocol-Oriented";
-				USES_XCTRUNNER = YES;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -494,15 +398,6 @@
 			buildConfigurations = (
 				942D4A9C1B4729DD0079945E /* Debug */,
 				942D4A9D1B4729DD0079945E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		942D4A9E1B4729DD0079945E /* Build configuration list for PBXNativeTarget "Protocol-OrientedUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				942D4A9F1B4729DD0079945E /* Debug */,
-				942D4AA01B4729DD0079945E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
