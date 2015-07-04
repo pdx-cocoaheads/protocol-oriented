@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet var addButton: UIButton!
     @IBOutlet var tableView: UITableView!
     
-    let dataStore: StorageType = DataStore(defaults: NSUserDefaults.standardUserDefaults())
+    let dataStore: StorageType = NSUserDefaults.standardUserDefaults()
     var names: [String] = []
     
     override func viewDidLoad() {

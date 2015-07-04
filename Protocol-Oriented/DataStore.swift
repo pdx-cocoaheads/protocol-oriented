@@ -8,18 +8,14 @@
 
 import Foundation
 
-class DataStore: StorageType {
-    private let defaults: NSUserDefaults
-    private let namesKey = "org.pdx-ios.names"
-    
-    init(defaults: NSUserDefaults) {
-        self.defaults = defaults
-    }
+private let namesKey = "org.pdx-ios.names"
+
+extension NSUserDefaults : StorageType {
     
     func addName(name: String) {
         var names = fetchNames()
         names.append(name)
-        defaults.setObject(names, forKey: namesKey)
+        setObject(names, forKey: namesKey)
     }
     
     func removeName(name: String) {
@@ -27,10 +23,10 @@ class DataStore: StorageType {
         guard let i = names.indexOf(name) else { return }
         
         names.removeAtIndex(i)
-        defaults.setObject(names, forKey: namesKey)
+        setObject(names, forKey: namesKey)
     }
     
     func fetchNames() -> [String] {
-        return defaults.objectForKey(namesKey) as? [String] ?? []
+        return objectForKey(namesKey) as? [String] ?? []
     }
 }

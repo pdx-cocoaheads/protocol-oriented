@@ -14,12 +14,12 @@ import Protocol_Oriented
 class DataStoreTests: XCTestCase {
 
     let defaults = MockDefaults()
-    var store: DataStore!
+    var store: StorageType!
     
     override func setUp() {
         super.setUp()
         defaults.names = []
-        store = DataStore(defaults: defaults)
+        store = defaults
     }
     
     override func tearDown() {
