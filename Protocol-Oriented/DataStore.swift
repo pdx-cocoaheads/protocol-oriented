@@ -8,7 +8,7 @@
 
 import Foundation
 
-class DataStore {
+class DataStore: StorageType {
     private let defaults: NSUserDefaults
     private let namesKey = "org.pdx-ios.names"
     
