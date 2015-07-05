@@ -8,10 +8,10 @@
 
 import Foundation
 
+/// The key to store our data under in the NSUserDefaults
 private let namesKey = "org.pdx-ios.names"
 
 extension NSUserDefaults : StorageType {
-    
     func addName(name: String) {
         var names = fetchNames()
         names.append(name)
