@@ -14,24 +14,32 @@ class ViewController: UIViewController {
     @IBOutlet var addButton: UIButton!
     @IBOutlet var tableView: UITableView!
     
+    /// The backing data store
     let dataStore: DataStore = DataStore(defaults: NSUserDefaults.standardUserDefaults())
+    
+    /// The String array of names that will be the datasource for our tableView
     var names: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
+        // Grab all of the names from our DataStore
         names = dataStore.fetchNames()
     }
     
     @IBAction func addAction() {
+        // Only store non-empty names
         guard let name = textField.text where !name.isEmpty else { return }
+        
+        // Clear the text field
         textField.text = nil
         
+        // Store the name into the dataStore
         dataStore.addName(name)
         reloadData()
     }
     
+    /// Fetch names from the dataStore and reload the tableView data
     func reloadData() {
         names = dataStore.fetchNames()
         tableView.reloadData()
@@ -59,8 +67,13 @@ extension ViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         tableView.beginUpdates()
         if editingStyle == .Delete {
+            // Grab the name from our names property
             let name = names.removeAtIndex(indexPath.row)
+            
+            // Remove that name from the dataStore
             dataStore.removeName(name)
+            
+            // Remove the row from the tableView
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
         }
         tableView.endUpdates()
