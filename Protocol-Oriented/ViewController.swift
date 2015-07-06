@@ -73,7 +73,7 @@ extension ViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         tableView.beginUpdates()
         if editingStyle == .Delete {
-            // Remove that name from the lsit
+            // Remove that name from the list
             names.removeAtIndex(indexPath.row)
 
             // Store the names into the dataStore
