@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+/// The key to store our data under in the data store
 private let kNamesKey = "org.pdx-ios.names"
 
 class ViewController: UIViewController {
