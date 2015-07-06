@@ -8,12 +8,16 @@
 
 import UIKit
 
+
+/// The key to store our data under in the data store
+private let kNamesKey = "org.pdx-ios.names"
+
 class ViewController: UIViewController {
 
     @IBOutlet var textField: UITextField!
     @IBOutlet var addButton: UIButton!
     @IBOutlet var tableView: UITableView!
-    
+
     /// The backing data store
     let dataStore: StorageType = NSUserDefaults.standardUserDefaults()
     
@@ -22,9 +26,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Grab all of the names from our DataStore
-        names = dataStore.fetchNames()
+        names = dataStore.fetchObjectForKey(kNamesKey) ?? []
     }
     
     @IBAction func addAction() {
@@ -33,15 +37,17 @@ class ViewController: UIViewController {
         
         // Clear the text field
         textField.text = nil
-        
-        // Store the name into the dataStore
-        dataStore.addName(name)
+
+        names.append(name)
+
+        // Store the names into the dataStore
+        dataStore.storeObject(names, forKey: kNamesKey)
         reloadData()
     }
     
     /// Fetch names from the dataStore and reload the tableView data
     func reloadData() {
-        names = dataStore.fetchNames()
+        names = dataStore.fetchObjectForKey(kNamesKey) ?? []
         tableView.reloadData()
     }
 }
@@ -67,12 +73,12 @@ extension ViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         tableView.beginUpdates()
         if editingStyle == .Delete {
-            // Grab the name from our names property
-            let name = names.removeAtIndex(indexPath.row)
-            
-            // Remove that name from the dataStore
-            dataStore.removeName(name)
-            
+            // Remove that name from the list
+            names.removeAtIndex(indexPath.row)
+
+            // Store the names into the dataStore
+            dataStore.storeObject(names, forKey: kNamesKey)
+
             // Remove the row from the tableView
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
         }

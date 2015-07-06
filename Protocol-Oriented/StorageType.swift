@@ -6,14 +6,22 @@
 //  Copyright © 2015 pdx-ios.org. All rights reserved.
 //
 
+// DONT USE THIS IN PRODUCTION
+typealias Storable = _ObjectiveCBridgeable
+
+
 /// A type that can store values somewhere
 protocol StorageType {
-    /// Adds a name to the data store.
-    func addName(name: String)
-    
-    /// Removes the first occurence of the given `name` from the data store.
-    func removeName(name: String)
-    
-    /// Returns all of the names stored in the data store.
-    func fetchNames() -> [String]
+
+    /// Fetch an object from the Store
+    func fetchObjectForKey<T: Storable>(key: String) -> T?
+
+    /// Remove an object from the store
+    func removeObjectForKey(key: String)
+
+    /// Add an object to the store
+    func storeObject<T: Storable>(object: T, forKey key: String)
 }
+
+/// A type that can store values somewhere, securely
+protocol SecureStorageType: StorageType { }
