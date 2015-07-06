@@ -21,6 +21,8 @@ final class SecureDataStore: SecureStorageType {
     }
 
     func storeObject<T : Storable>(object: T, forKey key: String) {
-        keychain[key] = "yest"
+        // Keychain library that I found only allows for String / NSData. Will fix if I can get the time
+        // You should get the idea
+        keychain[key] = "object"
     }
 }
