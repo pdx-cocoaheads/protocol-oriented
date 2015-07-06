@@ -6,8 +6,13 @@
 //  Copyright © 2015 pdx-ios.org. All rights reserved.
 //
 
+typealias Storable = _ObjectiveCBridgeable
+
 protocol StorageType {
-    func addName(name: String)
-    func removeName(name: String)
-    func fetchNames() -> [String]
+
+	func fetchObjectForKey<T: Storable>(key: String) -> T?
+	func removeObjectForKey(key: String)
+	func storeObject<T: Storable>(object: T, forKey key: String)
 }
+
+protocol SecureStorageType: StorageType { }

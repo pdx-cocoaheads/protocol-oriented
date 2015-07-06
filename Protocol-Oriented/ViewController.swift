@@ -8,33 +8,37 @@
 
 import UIKit
 
+private let kNamesKey = "org.pdx-ios.names"
+
 class ViewController: UIViewController {
 
     @IBOutlet var textField: UITextField!
     @IBOutlet var addButton: UIButton!
     @IBOutlet var tableView: UITableView!
     
-    let dataStore: StorageType = NSUserDefaults.standardUserDefaults()
-    var names: [String] = []
+    private let dataStore: StorageType = NSUserDefaults.standardUserDefaults()
+    private var names: [String] = []
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "reuseIdentifier")
         
-        names = dataStore.fetchNames()
+        names = dataStore.fetchObjectForKey(kNamesKey) ?? []
     }
     
     @IBAction func addAction() {
         guard let name = textField.text where !name.isEmpty else { return }
         textField.text = nil
         
-        dataStore.addName(name)
+        names.append(name)
+		dataStore.storeObject(names, forKey: kNamesKey)
         reloadData()
     }
     
     func reloadData() {
-        names = dataStore.fetchNames()
+        names = dataStore.fetchObjectForKey(kNamesKey) ?? []
         tableView.reloadData()
     }
 }
@@ -60,8 +64,8 @@ extension ViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         tableView.beginUpdates()
         if editingStyle == .Delete {
-            let name = names.removeAtIndex(indexPath.row)
-            dataStore.removeName(name)
+            names.removeAtIndex(indexPath.row)
+			dataStore.storeObject(names, forKey: kNamesKey)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
         }
         tableView.endUpdates()

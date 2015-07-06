@@ -8,25 +8,13 @@
 
 import Foundation
 
-private let namesKey = "org.pdx-ios.names"
+extension NSUserDefaults: StorageType {
 
-extension NSUserDefaults : StorageType {
-    
-    func addName(name: String) {
-        var names = fetchNames()
-        names.append(name)
-        setObject(names, forKey: namesKey)
-    }
-    
-    func removeName(name: String) {
-        var names = fetchNames()
-        guard let i = names.indexOf(name) else { return }
-        
-        names.removeAtIndex(i)
-        setObject(names, forKey: namesKey)
-    }
-    
-    func fetchNames() -> [String] {
-        return objectForKey(namesKey) as? [String] ?? []
-    }
+	func fetchObjectForKey<T : Storable>(key: String) -> T? {
+		return objectForKey(key) as? T
+	}
+
+	func storeObject<T : Storable>(object: T, forKey key: String) {
+		setObject((object as? AnyObject), forKey: key)
+	}
 }
