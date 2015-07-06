@@ -15,28 +15,35 @@ class ViewController: UIViewController {
     @IBOutlet var textField: UITextField!
     @IBOutlet var addButton: UIButton!
     @IBOutlet var tableView: UITableView!
-    
-    private let dataStore: StorageType = NSUserDefaults.standardUserDefaults()
-    private var names: [String] = []
 
+    /// The backing data store
+    let dataStore: StorageType = NSUserDefaults.standardUserDefaults()
+    
+    /// The String array of names that will be the datasource for our tableView
+    var names: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "reuseIdentifier")
-        
+
+        // Grab all of the names from our DataStore
         names = dataStore.fetchObjectForKey(kNamesKey) ?? []
     }
     
     @IBAction func addAction() {
+        // Only store non-empty names
         guard let name = textField.text where !name.isEmpty else { return }
-        textField.text = nil
         
+        // Clear the text field
+        textField.text = nil
+
         names.append(name)
+
+        // Store the names into the dataStore
         dataStore.storeObject(names, forKey: kNamesKey)
         reloadData()
     }
     
+    /// Fetch names from the dataStore and reload the tableView data
     func reloadData() {
         names = dataStore.fetchObjectForKey(kNamesKey) ?? []
         tableView.reloadData()
@@ -64,8 +71,13 @@ extension ViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         tableView.beginUpdates()
         if editingStyle == .Delete {
+            // Remove that name from the lsit
             names.removeAtIndex(indexPath.row)
+
+            // Store the names into the dataStore
             dataStore.storeObject(names, forKey: kNamesKey)
+
+            // Remove the row from the tableView
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
         }
         tableView.endUpdates()

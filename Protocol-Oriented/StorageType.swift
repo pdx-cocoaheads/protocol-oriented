@@ -6,7 +6,6 @@
 //  Copyright © 2015 pdx-ios.org. All rights reserved.
 //
 
-
 // DONT USE THIS IN PRODUCTION
 typealias Storable = _ObjectiveCBridgeable
 
