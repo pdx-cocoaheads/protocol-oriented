@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		42B17C051B4AFBC7005676C0 /* UnsecureToSecureDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B17C041B4AFBC7005676C0 /* UnsecureToSecureDataStore.swift */; };
-		42D09EA71B4855C700929DDF /* SecureDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D09EA61B4855C700929DDF /* SecureDataStore.swift */; };
+		42D09EA71B4855C700929DDF /* KeychainDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D09EA61B4855C700929DDF /* KeychainDataStore.swift */; };
 		42D09EAA1B48599500929DDF /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D09EA91B48599500929DDF /* Keychain.swift */; };
 		942D4A741B4729DC0079945E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942D4A731B4729DC0079945E /* AppDelegate.swift */; };
 		942D4A761B4729DC0079945E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942D4A751B4729DC0079945E /* ViewController.swift */; };
@@ -32,7 +32,7 @@
 
 /* Begin PBXFileReference section */
 		42B17C041B4AFBC7005676C0 /* UnsecureToSecureDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnsecureToSecureDataStore.swift; sourceTree = "<group>"; };
-		42D09EA61B4855C700929DDF /* SecureDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecureDataStore.swift; sourceTree = "<group>"; };
+		42D09EA61B4855C700929DDF /* KeychainDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainDataStore.swift; sourceTree = "<group>"; };
 		42D09EA91B48599500929DDF /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Keychain.swift; path = lib/Keychain.swift; sourceTree = "<group>"; };
 		942D4A701B4729DC0079945E /* Protocol-Oriented.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Protocol-Oriented.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		942D4A731B4729DC0079945E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -105,7 +105,7 @@
 				942D4A7F1B4729DC0079945E /* Info.plist */,
 				94448E771B4768C300A73599 /* NSUserDefaults+StorageType.swift */,
 				94D8EEF51B481F8D001A68BA /* StorageType.swift */,
-				42D09EA61B4855C700929DDF /* SecureDataStore.swift */,
+				42D09EA61B4855C700929DDF /* KeychainDataStore.swift */,
 				42B17C041B4AFBC7005676C0 /* UnsecureToSecureDataStore.swift */,
 			);
 			path = "Protocol-Oriented";
@@ -221,7 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				942D4A761B4729DC0079945E /* ViewController.swift in Sources */,
-				42D09EA71B4855C700929DDF /* SecureDataStore.swift in Sources */,
+				42D09EA71B4855C700929DDF /* KeychainDataStore.swift in Sources */,
 				94448E781B4768C300A73599 /* NSUserDefaults+StorageType.swift in Sources */,
 				42B17C051B4AFBC7005676C0 /* UnsecureToSecureDataStore.swift in Sources */,
 				942D4A741B4729DC0079945E /* AppDelegate.swift in Sources */,
