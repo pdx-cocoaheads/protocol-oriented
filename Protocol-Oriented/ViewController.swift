@@ -33,7 +33,7 @@ class ViewController: UIViewController {
         textField.text = nil
         
         names.append(name)
-		dataStore.storeObject(names, forKey: kNamesKey)
+        dataStore.storeObject(names, forKey: kNamesKey)
         reloadData()
     }
     
@@ -65,7 +65,7 @@ extension ViewController: UITableViewDataSource {
         tableView.beginUpdates()
         if editingStyle == .Delete {
             names.removeAtIndex(indexPath.row)
-			dataStore.storeObject(names, forKey: kNamesKey)
+            dataStore.storeObject(names, forKey: kNamesKey)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
         }
         tableView.endUpdates()

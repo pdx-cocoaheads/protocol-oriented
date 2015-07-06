@@ -9,17 +9,18 @@
 import Foundation
 
 final class SecureDataStore: SecureStorageType {
-	private var keychain = Keychain(service: "org.pdx-ios")
 
-	func fetchObjectForKey<T : Storable>(key: String) -> T? {
-		return keychain[key] as? T
-	}
+    private var keychain = Keychain(service: "org.pdx-ios")
 
-	func removeObjectForKey(key: String) {
-		keychain[key] = nil
-	}
+    func fetchObjectForKey<T : Storable>(key: String) -> T? {
+        return keychain[key] as? T
+    }
 
-	func storeObject<T : Storable>(object: T, forKey key: String) {
-		keychain[key] = "yest"
-	}
+    func removeObjectForKey(key: String) {
+        keychain[key] = nil
+    }
+
+    func storeObject<T : Storable>(object: T, forKey key: String) {
+        keychain[key] = "yest"
+    }
 }

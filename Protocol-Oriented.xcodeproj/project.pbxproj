@@ -34,14 +34,14 @@
 		42D09EA91B48599500929DDF /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Keychain.swift; path = lib/Keychain.swift; sourceTree = "<group>"; };
 		942D4A701B4729DC0079945E /* Protocol-Oriented.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Protocol-Oriented.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		942D4A731B4729DC0079945E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		942D4A751B4729DC0079945E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		942D4A751B4729DC0079945E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; usesTabs = 0; };
 		942D4A781B4729DC0079945E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		942D4A7A1B4729DC0079945E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		942D4A7D1B4729DC0079945E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		942D4A7F1B4729DC0079945E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		942D4A841B4729DC0079945E /* Protocol-OrientedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Protocol-OrientedTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		942D4A8A1B4729DC0079945E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		94448E771B4768C300A73599 /* DataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
+		94448E771B4768C300A73599 /* DataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; usesTabs = 0; };
 		94D8EEF51B481F8D001A68BA /* StorageType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageType.swift; sourceTree = "<group>"; };
 		94D8EEF71B482780001A68BA /* DataStoreTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStoreTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -80,6 +80,7 @@
 				942D4A711B4729DC0079945E /* Products */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		942D4A711B4729DC0079945E /* Products */ = {
 			isa = PBXGroup;

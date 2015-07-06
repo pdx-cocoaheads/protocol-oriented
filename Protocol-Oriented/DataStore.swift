@@ -10,11 +10,11 @@ import Foundation
 
 extension NSUserDefaults: StorageType {
 
-	func fetchObjectForKey<T : Storable>(key: String) -> T? {
-		return objectForKey(key) as? T
-	}
+    func fetchObjectForKey<T : Storable>(key: String) -> T? {
+        return objectForKey(key) as? T
+    }
 
-	func storeObject<T : Storable>(object: T, forKey key: String) {
-		setObject((object as? AnyObject), forKey: key)
-	}
+    func storeObject<T : Storable>(object: T, forKey key: String) {
+        setObject((object as? AnyObject), forKey: key)
+    }
 }
