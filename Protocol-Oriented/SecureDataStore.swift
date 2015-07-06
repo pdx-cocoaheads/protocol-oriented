@@ -13,16 +13,20 @@ final class SecureDataStore: SecureStorageType {
     private var keychain = Keychain(service: "org.pdx-ios")
 
     func fetchObjectForKey<T : Storable>(key: String) -> T? {
-        return keychain[key] as? T
+        guard let data = keychain.getData(key) else { return nil }
+        guard let object: AnyObject = NSKeyedUnarchiver.unarchiveObjectWithData(data) else { return nil }
+
+        return object as? T
     }
 
     func removeObjectForKey(key: String) {
-        keychain[key] = nil
+        keychain.remove(key)
     }
 
     func storeObject<T : Storable>(object: T, forKey key: String) {
-        // Keychain library that I found only allows for String / NSData. Will fix if I can get the time
-        // You should get the idea
-        keychain[key] = "object"
+        guard let object: AnyObject = object as? AnyObject else { return }
+        let data = NSKeyedArchiver.archivedDataWithRootObject(object)
+
+        keychain.set(data, key: key)
     }
 }
